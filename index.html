@@ -8,12 +8,12 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>InstaBulk</title>
+    <title>InstaBulk - Bulk Instagram Name Checker</title>
 
-    <meta name="description" content=".">
-    <link rel="shortcut icon" href="">
-    <link rel="apple-touch-icon" href="">
-    <meta name="theme-color" content="#ffffff"/>
+    <meta name="description" content="Bulk Instagram Name Checker">
+    <link rel="shortcut icon" href="assets/images/icons-512.png">
+    <link rel="apple-touch-icon" href="assets/images/icons-512.png">
+    <meta name="theme-color" content="#F9F1E6"/>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
         <header class="header">
           <div class="container">
             <nav class="menu">
-              <div class="menu__logo"><strong>Insta</strong>Bulk <span></span></div>
+              <div class="menu__logo"><strong>Insta</strong>bulk <span></span></div>
               <ul>
                 <li class="active"><a href="#">Anasayfa</a></li>
                 <li><a href="#">Özellikler</a></li>
@@ -40,12 +40,36 @@
                 <li><a href="#">İletişim</a></li>
               </ul>
             </nav>
-            <div class="header__content">
-
+            <div class="header__content row">
+              <div class="col-md-6">
+                <div class="header__images">
+                  <img class="header__images-instagram" src="assets/images/instagram.svg" alt="Instagram">
+                  <img class="header__images-effects" src="assets/images/effects.svg" alt="Effects">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="header__content-title">Birden fazla Instagram kullanıcı adlarını çoklu olarak aynı anda kontrol edin!</div>
+                <div class="header__content-desc">Bir kerede kontrol etmeniz gereken birden fazla instagram kullanıcı adınız varsa Instabulk tam sizin için oluşturulmuş bir online tool Kullanıcı adı uygunluğu kontrol ederken maliyetlerinden instabulk sayesinde tasarruf edebilirsiniz! </div>
+                <form action="#">
+                  <textarea id="bulk" rows="8" placeholder="Kontrol etmek istediğiniz kullanıcı isimlerini her bir satıra gelecek şekilde bu alana giriniz..."></textarea>
+                  <div class="header__content-footer">
+                    <button class="header__content-button">Şimdi Sonuçlar Listele <i class="fas fa-search"></i></button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </header>
+        <div class="content">
+          <i class="fas fa-search"></i>
+        </div>
         <footer class="footer">
+          <div class="container h-100">
+            <div class="footer__content">
+              <div class="footer__copy">{{ new Date().getFullYear() }} © InstaBulk bir <a href="https://craftweb.co">CraftWeb</a> hizmetidir.</div>
+              <div class="footer__link"><a href="https://berkpw.github.io">berkpw</a> / <a href="https://fazlio.github.io">fazlio</a></div>
+            </div>
+          </div>
         </footer>
       </div>
     </div>

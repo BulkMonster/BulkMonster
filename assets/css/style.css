@@ -8,6 +8,58 @@ body {
 .header {
   background: #F9F1E6;
   padding-top: 30px; }
+  .header__images {
+    position: relative;
+    user-select: none; }
+    .header__images img {
+      position: absolute; }
+  .header__content-title {
+    line-height: 40px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #37393E;
+    margin-bottom: 16px; }
+  .header__content-desc {
+    font-size: 14px;
+    color: #37393E;
+    line-height: 20px;
+    margin-bottom: 40px; }
+  .header__content-footer {
+    margin-bottom: 64px;
+    margin-top: 22px;
+    display: flex;
+    align-content: center; }
+  .header__content-button {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #6A6ABB;
+    color: #fff;
+    height: 74px;
+    padding: 0 28px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: .6px;
+    transition: all .4s;
+    outline: none !important; }
+    .header__content-button:hover {
+      background: #6363b8; }
+    .header__content-button:focus {
+      background: #5c5cb5; }
+    .header__content-button i {
+      font-size: 22px; }
+  .header__content form textarea {
+    color: #37393E;
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #E6DBCC;
+    border-radius: 4px;
+    resize: vertical;
+    outline: none; }
+    .header__content form textarea::placeholder {
+      color: #93959A; }
 
 .menu {
   padding-bottom: 140px;
@@ -42,6 +94,33 @@ body {
         .menu ul li a:hover {
           color: #000; }
 
+.content {
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .content i {
+    font-size: 200px;
+    color: #F8F8F8;
+    margin-bottom: 40px; }
+
+.footer {
+  height: 70px;
+  background: #F9F1E6; }
+  .footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #37393E;
+    height: 100%; }
+  .footer__copy {
+    font-size: 18px; }
+  .footer a {
+    font-weight: 600;
+    color: #37393E;
+    outline: none !important; }
+
 .loader {
   display: flex;
   justify-content: center;
@@ -50,5 +129,9 @@ body {
   .loader svg path {
     color: #777777 !important;
     fill: currentColor !important; }
+
+@media (min-width: 1820px) {
+  .container {
+    max-width: 1720px; } }
 
 /*# sourceMappingURL=style.css.map */
