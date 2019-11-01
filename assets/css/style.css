@@ -10,9 +10,17 @@ body {
   padding-top: 30px; }
   .header__images {
     position: relative;
-    user-select: none; }
+    user-select: none;
+    height: 100%; }
     .header__images img {
       position: absolute; }
+    .header__images-instagram {
+      z-index: 1;
+      bottom: 0; }
+    .header__images-effects {
+      z-index: 0;
+      left: -132px;
+      top: 10px; }
   .header__content-title {
     line-height: 40px;
     font-size: 30px;
@@ -76,8 +84,7 @@ body {
       width: 8px;
       background: #DD8285;
       display: inline-block;
-      border-radius: 50%;
-      margin-left: 10px; }
+      border-radius: 50%; }
   .menu ul {
     list-style: none; }
     .menu ul li {
@@ -130,8 +137,8 @@ body {
     color: #777777 !important;
     fill: currentColor !important; }
 
-@media (min-width: 1820px) {
+@media (min-width: 1680px) {
   .container {
-    max-width: 1720px; } }
+    max-width: 1580px; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -17,16 +17,19 @@ body {
   &__images {
     position: relative;
     user-select: none;
+    height: 100%;
 
     img {
       position: absolute;
-
-      &-instagram {
-
-      }
-      &-effects {
-
-      }
+    }
+    &-instagram {
+      z-index: 1;
+      bottom: 0;
+    }
+    &-effects {
+      z-index: 0;
+      left: -132px;
+      top: 10px;
     }
   }
   &__content {
@@ -111,7 +114,6 @@ body {
       background: $color-red;
       display: inline-block;
       border-radius: 50%;
-      margin-left: 10px;
     }
   }
   ul {
@@ -183,8 +185,8 @@ body {
   }
 }
 
-@media (min-width: 1820px) {
+@media (min-width: 1680px) {
   .container {
-    max-width: 1720px;
+    max-width: 1580px;
   }
 }
