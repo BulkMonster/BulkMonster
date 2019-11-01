@@ -1,0 +1,54 @@
+@import url(fontawesome.min.css);
+html, body {
+  background: #ffffff; }
+
+body {
+  font-family: 'Poppins', sans-serif; }
+
+.header {
+  background: #F9F1E6;
+  padding-top: 30px; }
+
+.menu {
+  padding-bottom: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .menu__logo {
+    font-size: 28px;
+    font-weight: 300; }
+    .menu__logo b, .menu__logo strong {
+      font-weight: bold; }
+    .menu__logo span {
+      height: 8px;
+      width: 8px;
+      background: #DD8285;
+      display: inline-block;
+      border-radius: 50%;
+      margin-left: 10px; }
+  .menu ul {
+    list-style: none; }
+    .menu ul li {
+      float: left;
+      margin-left: 30px; }
+      .menu ul li.active a {
+        background: linear-gradient(to top, rgba(221, 130, 133, 0.7) 40%, transparent 0%); }
+      .menu ul li a {
+        text-decoration: none;
+        outline: none;
+        color: #25272b;
+        font-size: 14px;
+        transition: all .4s; }
+        .menu ul li a:hover {
+          color: #000; }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }
+  .loader svg path {
+    color: #777777 !important;
+    fill: currentColor !important; }
+
+/*# sourceMappingURL=style.css.map */

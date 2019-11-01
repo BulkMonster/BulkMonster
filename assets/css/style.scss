@@ -1,0 +1,73 @@
+@import "fontawesome.min.css";
+$color-red: #DD8285;
+
+html, body {
+  background: #ffffff;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.main {
+
+}
+.header {
+  background: #F9F1E6;
+  padding-top: 30px;
+}
+.menu {
+  padding-bottom: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    font-size: 28px;
+    font-weight: 300;
+
+    b, strong {
+      font-weight: bold;
+    }
+    span {
+      height: 8px;
+      width: 8px;
+      background: $color-red;
+      display: inline-block;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+  }
+  ul {
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 30px;
+
+      &.active a {
+        background: linear-gradient(to top, rgba($color-red, .7) 40%, transparent 0%);
+      }
+      a {
+        text-decoration: none;
+        outline: none;
+        color: #25272b;
+        font-size: 14px;
+        transition: all .4s;
+
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  svg path {
+    color: #777777 !important;
+    fill: currentColor !important;
+  }
+}
