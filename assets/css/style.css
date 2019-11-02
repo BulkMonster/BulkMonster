@@ -31,7 +31,7 @@ body {
     font-size: 14px;
     color: #37393E;
     line-height: 20px;
-    margin-bottom: 40px; }
+    margin-bottom: 22px; }
   .header__content-footer {
     margin-bottom: 64px;
     margin-top: 22px;
@@ -44,20 +44,31 @@ body {
     align-items: center;
     background: #6A6ABB;
     color: #fff;
-    height: 74px;
+    height: 76px;
     padding: 0 28px;
     border: none;
     border-radius: 4px;
     font-weight: bold;
     letter-spacing: .6px;
     transition: all .4s;
-    outline: none !important; }
+    outline: none !important;
+    margin-left: 30px; }
     .header__content-button:hover {
       background: #6363b8; }
     .header__content-button:focus {
       background: #5c5cb5; }
     .header__content-button i {
       font-size: 22px; }
+    .header__content-button\:purple {
+      background: #6A6ABB; }
+    .header__content-button\:danger {
+      background: #FA5555 !important; }
+    .header__content-button\:warning {
+      background: #fed330 !important; }
+    .header__content-button\:success {
+      background: #25CE7B !important; }
+  .header__content-recaptcha iframe {
+    height: 100% !important; }
   .header__content form textarea {
     color: #37393E;
     width: 100%;
@@ -65,7 +76,8 @@ body {
     border: 2px solid #E6DBCC;
     border-radius: 4px;
     resize: vertical;
-    outline: none; }
+    outline: none;
+    display: block; }
     .header__content form textarea::placeholder {
       color: #93959A; }
 
@@ -102,15 +114,85 @@ body {
           color: #000; }
 
 .content {
-  height: 800px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
-  .content i {
-    font-size: 200px;
-    color: #F8F8F8;
-    margin-bottom: 40px; }
+  min-height: 250px;
+  transition: all .4s; }
+  .content__list {
+    margin: 40px 0; }
+    .content__list-title {
+      color: #37393E;
+      font-size: 24px;
+      font-weight: 600;
+      border-bottom: 1px solid #E6DBCC;
+      padding-bottom: 14px;
+      margin-bottom: 24px; }
+    .content__list-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px; }
+      .content__list-item\:main {
+        background: #F8F8F8;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        height: 80px;
+        flex: 1;
+        font-size: 18px;
+        font-weight: 600;
+        color: #37393E; }
+        .content__list-item\:main a {
+          color: #37393E;
+          text-decoration: none;
+          outline: none; }
+        .content__list-item\:main i {
+          margin-right: 18px; }
+        .content__list-item\:main:last-child {
+          margin-bottom: 0; }
+      .content__list-item\:status {
+        border-radius: 4px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 130px;
+        flex: 0 0 130px;
+        color: #43475B;
+        font-size: 36px;
+        margin-left: 30px;
+        background: #F8F8F8; }
+        .content__list-item\:status.check {
+          background: #25CE7B;
+          color: #fff; }
+        .content__list-item\:status.times {
+          background: #FA5555;
+          color: #fff; }
+        .content__list-item\:status.exclamation {
+          background: #fed330;
+          color: #fff; }
+      .content__list-item\:copy {
+        border-radius: 4px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 130px;
+        flex: 0 0 130px;
+        font-size: 36px;
+        margin-left: 30px;
+        background: #F8F8F8;
+        cursor: pointer;
+        color: #43475B; }
+  .content__wait {
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all .4s; }
+    .content__wait i {
+      font-size: 200px;
+      color: #F8F8F8;
+      margin-bottom: 40px; }
 
 .footer {
   height: 70px;
@@ -140,5 +222,10 @@ body {
 @media (min-width: 1680px) {
   .container {
     max-width: 1580px; } }
+.fade-enter-active, .fade-leave-active {
+  transition: all .4s; }
+
+.fade-enter, .fade-leave-to {
+  opacity: 0; }
 
 /*# sourceMappingURL=style.css.map */

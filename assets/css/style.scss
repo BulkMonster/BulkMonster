@@ -1,5 +1,9 @@
 @import "fontawesome.min.css";
 $color-red: #DD8285;
+$color-success: #25CE7B;
+$color-warning: #fed330;
+$color-danger: #FA5555;
+$color-info: #6A6ABB;
 
 html, body {
   background: #ffffff;
@@ -44,7 +48,7 @@ body {
       font-size: 14px;
       color: #37393E;
       line-height: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 22px;
     }
     &-footer {
       margin-bottom: 64px;
@@ -57,9 +61,9 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #6A6ABB;
+      background: $color-info;
       color: #fff;
-      height: 74px;
+      height: 76px;
       padding: 0 28px;
       border: none;
       border-radius: 4px;
@@ -67,15 +71,33 @@ body {
       letter-spacing: .6px;
       transition: all .4s;
       outline: none !important;
+      margin-left: 30px;
 
       &:hover {
-        background: darken(#6A6ABB, 2%);
+        background: darken($color-info, 2%);
       }
       &:focus {
-        background: darken(#6A6ABB, 4%);
+        background: darken($color-info, 4%);
       }
       i {
         font-size: 22px;
+      }
+      &\:purple {
+        background: $color-info;
+      }
+      &\:danger {
+        background: $color-danger !important;
+      }
+      &\:warning {
+        background: $color-warning !important;
+      }
+      &\:success {
+        background: $color-success !important;
+      }
+    }
+    &-recaptcha {
+      iframe {
+        height: 100% !important;
       }
     }
     form {
@@ -87,6 +109,7 @@ body {
         border-radius: 4px;
         resize: vertical;
         outline: none;
+        display: block;
         
         &::placeholder {
           color: #93959A;
@@ -141,16 +164,104 @@ body {
   }
 }
 .content {
-  height: 800px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  min-height: 250px;
+  transition: all .4s;
 
-  i {
-    font-size: 200px;
-    color: #F8F8F8;
-    margin-bottom: 40px;
+  &__list {
+    margin: 40px 0;
+
+    &-title {
+      color: #37393E;
+      font-size: 24px;
+      font-weight: 600;
+      border-bottom: 1px solid #E6DBCC;
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+    }
+    &-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+
+      &\:main {
+        background: #F8F8F8;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        height: 80px;
+        flex: 1;
+        font-size: 18px;
+        font-weight: 600;
+        color: #37393E;
+
+        a {
+          color: #37393E;
+          text-decoration: none;
+          outline: none;
+        }
+        i {
+          margin-right: 18px;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      &\:status {
+        border-radius: 4px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 130px;
+        flex: 0 0 130px;
+        color: #43475B;
+        font-size: 36px;
+        margin-left: 30px;
+        background: #F8F8F8;
+        
+        &.check {
+          background: $color-success;
+          color: #fff;
+        }
+        &.times {
+          background: $color-danger;
+          color: #fff;
+        }
+        &.exclamation {
+          background: $color-warning;
+          color: #fff;
+        }
+      }
+      &\:copy {
+        border-radius: 4px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 130px;
+        flex: 0 0 130px;
+        font-size: 36px;
+        margin-left: 30px;
+        background: #F8F8F8;
+        cursor: pointer;
+        color: #43475B;
+      }
+    }
+  }
+  &__wait {
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all .4s;
+
+    i {
+      font-size: 200px;
+      color: #F8F8F8;
+      margin-bottom: 40px;
+    }
   }
 }
 .footer {
@@ -189,4 +300,12 @@ body {
   .container {
     max-width: 1580px;
   }
+}
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .4s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
