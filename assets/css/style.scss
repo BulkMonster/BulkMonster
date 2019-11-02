@@ -1,7 +1,7 @@
 @import "fontawesome.min.css";
 $color-red: #DD8285;
 $color-success: #25CE7B;
-$color-warning: #fed330;
+$color-warning: #FFC312;
 $color-danger: #FA5555;
 $color-info: #6A6ABB;
 
@@ -71,14 +71,6 @@ body {
       letter-spacing: .6px;
       transition: all .4s;
       outline: none !important;
-      margin-left: 30px;
-
-      &:hover {
-        background: darken($color-info, 2%);
-      }
-      &:focus {
-        background: darken($color-info, 4%);
-      }
       i {
         font-size: 22px;
       }
@@ -86,28 +78,35 @@ body {
         background: $color-info;
       }
       &\:danger {
-        background: $color-danger !important;
+        background: darken($color-danger, 2%) !important;
       }
       &\:warning {
-        background: $color-warning !important;
+        background: darken($color-warning, 2%) !important;
       }
       &\:success {
-        background: $color-success !important;
+        background: darken($color-success, 2%) !important;
       }
     }
     &-recaptcha {
+      div {
+        margin-right: 30px;
+      }
       iframe {
         height: 100% !important;
       }
     }
     form {
+      label {
+        display: block;
+        margin: 0;
+      }
       textarea {
         color: #37393E;
         width: 100%;
         padding: 14px;
         border: 2px solid #E6DBCC;
         border-radius: 4px;
-        resize: vertical;
+        resize: none;
         outline: none;
         display: block;
         
@@ -140,6 +139,8 @@ body {
     }
   }
   ul {
+    padding: 0;
+    margin: 0;
     list-style: none;
 
     li {
@@ -219,6 +220,7 @@ body {
         font-size: 36px;
         margin-left: 30px;
         background: #F8F8F8;
+        transition: all .4s;
         
         &.check {
           background: $color-success;

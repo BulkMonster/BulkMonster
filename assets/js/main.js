@@ -11,10 +11,15 @@ const app = new Vue({
   data() {
     return {
       loader: true,
-      wait: true,
-      ad: false,
-      bulks: "",
-      bulksList: [],
+      page: {
+        wait: true,
+        showAd: true
+      },
+      form: {
+        bulks: "",
+        bulksList: [],
+        recaptcha: ""
+      },
       button: {
         text: 'Şimdi Sonuçlar Listele',
         icon: 'search',
@@ -24,48 +29,82 @@ const app = new Vue({
     }
   },
   methods: {
-    checkBulk: function() {
+    // checkBulk: function() {
+    //   const that = this;
+    //
+    //   // Check Area
+    //   let list = this.bulks
+    //     .replace(" ","")
+    //     .split("\n")
+    //     .filter(e => e !== "")
+    //     .filter((v, i, a) => a.indexOf(v) === i);
+    //   that.bulksList = [];
+    //   list.forEach(function (e) {
+    //     that.bulksList.push({
+    //       nick: e,
+    //       type: "wait",
+    //       usable: false,
+    //       possible: true
+    //     });
+    //   });
+    //
+    //   // Actions
+    //   if (this.bulksList[0]) {
+    //     $('html, body').animate({
+    //       scrollTop: $(".content").offset().top
+    //     }, 1000, "swing", function () {
+    //       that.wait = false;
+    //     });
+    //     $.each(that.bulksList, function (i,e) {
+    //       axios({
+    //         url: 'http://localhost/ideasoft/instagram.php',
+    //         responseType: 'json',
+    //         params: {
+    //           nick: e.nick
+    //         },
+    //       }).then(function (response) {
+    //         that.bulksList[i].usable = response.data.usable;
+    //         that.bulksList[i].possible = response.data.possible;
+    //         setTimeout(function () {
+    //           that.bulksList[i].type = response.data.possible ? response.data.usable ? "check" : "times" : "exclamation";
+    //         }, 3000)
+    //       });
+    //     });
+    //   } else {
+    //     this.changeButton('Boş Kontrol Yapılamaz', 'times', 'danger');
+    //   }
+    // },
+    onSubmit: function () {
       const that = this;
+      that.processData(that);
 
-      // Check Area
-      let list = this.bulks
-        .replace(" ","")
-        .split("\n")
-        .filter(e => e !== "")
-        .filter((v, i, a) => a.indexOf(v) === i);
-      that.bulksList = [];
-      list.forEach(function (e) {
-        that.bulksList.push({
-          nick: e,
-          type: "wait",
-          usable: false,
-          possible: true
-        });
-      });
-
-      // Actions
-      if (this.bulksList[0]) {
-        $('html, body').animate({
-          scrollTop: $(".content").offset().top
-        }, 1000, "swing", function () {
-          that.wait = false;
-        });
-        $.each(that.bulksList, function (i,e) {
-          axios({
-            url: 'http://localhost/ideasoft/instagram.php',
-            responseType: 'json',
-            params: {
-              nick: e.nick
-            },
-          }).then(function (response) {
-            that.bulksList[i].usable = response.data.usable;
-            that.bulksList[i].possible = response.data.possible;
-            that.bulksList[i].type = response.data.possible ? response.data.usable ? "check" : "times" : "exclamation";
+      if (this.form.recaptcha !== "") {
+        if (this.form.bulksList[0]) {
+          $('html, body').animate({scrollTop: $(".content").offset().top}, 1000, "swing", function () {
+            that.page.wait = false;
           });
-        });
+          if (that.page.wait) {
+            that.resetRecaptcha();
+            setTimeout(function () {
+              that.checkApi(that);
+              that.page.showAd = false;
+            }, 4000)
+          }
+        } else {
+          this.changeButton('Boş Kontrol Yapılamaz', 'times', 'danger');
+        }
       } else {
-        this.changeButton('Boş Kontrol Yapılamaz', 'times', 'danger');
+        that.changeButton("Robot Musun", "question", "warning");
       }
+    },
+    onVerify: function (response) {
+      if (response) this.form.recaptcha = response;
+    },
+    onExpired: function () {
+      this.form.recaptcha = "";
+    },
+    resetRecaptcha () {
+      this.$refs.recaptcha.reset()
     },
     changeButton: function (text, icon, color = 'purple', time = 1500) {
       const that = this, defaultButton = this.button;
@@ -75,6 +114,16 @@ const app = new Vue({
           that.button = defaultButton;
         }, time);
       }
+    },
+    processData: function (that) {
+      let list = that.form.bulks.replace(" ","").split("\n").filter(e => e !== "").filter((v, i, a) => a.indexOf(v) === i);
+      that.form.bulksList = [];
+      list.forEach(function (e) {
+        that.form.bulksList.push({nick: e, type: "wait", usable: false, possible: true});
+      });
+    },
+    checkApi: function (that) {
+      console.log(that.form.bulksList);
     }
   },
   mounted() {

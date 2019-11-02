@@ -51,31 +51,31 @@ body {
     font-weight: bold;
     letter-spacing: .6px;
     transition: all .4s;
-    outline: none !important;
-    margin-left: 30px; }
-    .header__content-button:hover {
-      background: #6363b8; }
-    .header__content-button:focus {
-      background: #5c5cb5; }
+    outline: none !important; }
     .header__content-button i {
       font-size: 22px; }
     .header__content-button\:purple {
       background: #6A6ABB; }
     .header__content-button\:danger {
-      background: #FA5555 !important; }
+      background: #fa4b4b !important; }
     .header__content-button\:warning {
-      background: #fed330 !important; }
+      background: #ffc008 !important; }
     .header__content-button\:success {
-      background: #25CE7B !important; }
+      background: #23c576 !important; }
+  .header__content-recaptcha div {
+    margin-right: 30px; }
   .header__content-recaptcha iframe {
     height: 100% !important; }
+  .header__content form label {
+    display: block;
+    margin: 0; }
   .header__content form textarea {
     color: #37393E;
     width: 100%;
     padding: 14px;
     border: 2px solid #E6DBCC;
     border-radius: 4px;
-    resize: vertical;
+    resize: none;
     outline: none;
     display: block; }
     .header__content form textarea::placeholder {
@@ -98,6 +98,8 @@ body {
       display: inline-block;
       border-radius: 50%; }
   .menu ul {
+    padding: 0;
+    margin: 0;
     list-style: none; }
     .menu ul li {
       float: left;
@@ -159,7 +161,8 @@ body {
         color: #43475B;
         font-size: 36px;
         margin-left: 30px;
-        background: #F8F8F8; }
+        background: #F8F8F8;
+        transition: all .4s; }
         .content__list-item\:status.check {
           background: #25CE7B;
           color: #fff; }
@@ -167,7 +170,7 @@ body {
           background: #FA5555;
           color: #fff; }
         .content__list-item\:status.exclamation {
-          background: #fed330;
+          background: #FFC312;
           color: #fff; }
       .content__list-item\:copy {
         border-radius: 4px;
