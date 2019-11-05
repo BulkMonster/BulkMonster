@@ -18,7 +18,7 @@ const app = new Vue({
       form: {
         bulks: "",
         bulksList: [],
-        recaptcha: ""
+        recaptcha: "1"
       },
       button: {
         text: 'Şimdi Sonuçlar Listele',
@@ -83,13 +83,11 @@ const app = new Vue({
           $('html, body').animate({scrollTop: $(".content").offset().top}, 1000, "swing", function () {
             that.page.wait = false;
           });
-          if (that.page.wait) {
-            that.resetRecaptcha();
-            setTimeout(function () {
-              that.checkApi(that);
-              that.page.showAd = false;
-            }, 4000)
-          }
+          that.resetRecaptcha();
+          setTimeout(function () {
+            that.checkApi(that);
+            that.page.showAd = false;
+          }, 400);
         } else {
           this.changeButton('Boş Kontrol Yapılamaz', 'times', 'danger');
         }
@@ -123,7 +121,20 @@ const app = new Vue({
       });
     },
     checkApi: function (that) {
-      console.log(that.form.bulksList);
+      axios.post('http://localhost/InstaBulkApi/', {recaptcha: that.form.recaptcha, nicks: that.form.bulksList}).then(function (r) {
+        let e = r.data;
+        if (e.status === "success") {
+          e.response.forEach(function (v) {
+            let index = that.form.bulksList.find(f => f.nick === v.nick);
+
+            index.possible = v.possible;
+            index.usable = v.usable;
+            index.type = v.possible ? v.usable ? "check" : "times" : "exclamation";
+          });
+        } else {
+          that.changeButton(e.message, (e.type === "danger" ? "times" : "exclamation"), e.type);
+        }
+      });
     }
   },
   mounted() {
