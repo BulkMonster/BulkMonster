@@ -18,7 +18,7 @@ const app = new Vue({
       form: {
         bulks: "",
         bulksList: [],
-        recaptcha: "1"
+        recaptcha: ""
       },
       button: {
         text: 'Şimdi Sonuçlar Listele',
