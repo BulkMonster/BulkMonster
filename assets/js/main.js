@@ -29,51 +29,6 @@ const app = new Vue({
     }
   },
   methods: {
-    // checkBulk: function() {
-    //   const that = this;
-    //
-    //   // Check Area
-    //   let list = this.bulks
-    //     .replace(" ","")
-    //     .split("\n")
-    //     .filter(e => e !== "")
-    //     .filter((v, i, a) => a.indexOf(v) === i);
-    //   that.bulksList = [];
-    //   list.forEach(function (e) {
-    //     that.bulksList.push({
-    //       nick: e,
-    //       type: "wait",
-    //       usable: false,
-    //       possible: true
-    //     });
-    //   });
-    //
-    //   // Actions
-    //   if (this.bulksList[0]) {
-    //     $('html, body').animate({
-    //       scrollTop: $(".content").offset().top
-    //     }, 1000, "swing", function () {
-    //       that.wait = false;
-    //     });
-    //     $.each(that.bulksList, function (i,e) {
-    //       axios({
-    //         url: 'http://localhost/ideasoft/instagram.php',
-    //         responseType: 'json',
-    //         params: {
-    //           nick: e.nick
-    //         },
-    //       }).then(function (response) {
-    //         that.bulksList[i].usable = response.data.usable;
-    //         that.bulksList[i].possible = response.data.possible;
-    //         setTimeout(function () {
-    //           that.bulksList[i].type = response.data.possible ? response.data.usable ? "check" : "times" : "exclamation";
-    //         }, 3000)
-    //       });
-    //     });
-    //   } else {
-    //     this.changeButton('Boş Kontrol Yapılamaz', 'times', 'danger');
-    //   }
-    // },
     onSubmit: function () {
       const that = this;
       that.processData(that);
@@ -121,7 +76,7 @@ const app = new Vue({
       });
     },
     checkApi: function (that) {
-      axios.post('http://localhost/InstaBulkApi/', {recaptcha: that.form.recaptcha, nicks: that.form.bulksList}).then(function (r) {
+      axios.post('api/index.php', {recaptcha: that.form.recaptcha, nicks: that.form.bulksList}).then(function (r) {
         let e = r.data;
         if (e.status === "success") {
           e.response.forEach(function (v) {
@@ -142,7 +97,7 @@ const app = new Vue({
   }
 }).$mount('#app');
 
-// // PWA Code
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker.register('sw.js').then(() => console.log("[SW] Is activated."));
-// }
+// PWA Code
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').then(() => console.log("[SW] Is activated."));
+}
