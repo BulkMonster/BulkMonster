@@ -1,6 +1,6 @@
 const router = new VueRouter({
   mode: 'history',
-  base: '/InstaBulk/',
+  // base: '/InstaBulk/',
   routes: []
 });
 const app = new Vue({
