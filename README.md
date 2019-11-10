@@ -1,2 +1,2 @@
-# InstaBulk
-Bulk Instagram Name Checker
+# BulkMonster
+Bulk Name Checker
